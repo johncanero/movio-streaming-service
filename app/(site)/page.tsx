@@ -1,5 +1,4 @@
 "use client";
-
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
 import { useCallback, useState } from 'react';
@@ -12,6 +11,12 @@ export default function Home() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [variant, setVariant] = useState('login');
+    
+    const toggleVariant = useCallback(() => {
+        setVariant((currentVariant) => currentVariant === 'login' ? 'register' : 'login');
+    }, []);
+    
     return (
         <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
             <div className="w-full h-full bg-black lg:bg-opacity-50">
@@ -24,21 +29,23 @@ export default function Home() {
                 {/* Auth Screen UI */}
                 <div className="flex justify-center">
                     <div className="self-center w-full py-16 mt-2 bg-black rounded-md px-14 bg-opacity-70 lg:w-2/5 lg:max-w-md">
-                        {/* Auth Sign In */}
+                        {/* Auth Sign In - variant */}
                         <h2 className="mb-8 text-4xl font-semibold text-white">
-                            Sign In
+                            {variant === 'login' ? 'Sign in' : 'Register'}
                         </h2>
 
-                        {/* Auth Input */}
+                        {/* Auth Input (Input.tsx) */}
                         <div className="flex flex-col gap-4">
-                            {/* name */}
-                            <Input
-                                id="name"
-                                type="text"
-                                label="Username"
-                                value={name}
-                                onChange={(e: any) => setName(e.target.value)}
-                            />
+                            {/* name - variant - register */}
+                            {variant === 'register' && (
+                                <Input
+                                    id="name"
+                                    type="text"
+                                    label="Username"
+                                    value={name}
+                                    onChange={(e: any) => setName(e.target.value)}
+                                />
+                            )}
                             {/* email */}
                             <Input
                                 id="email"
@@ -57,17 +64,18 @@ export default function Home() {
                             />
                         </div>
 
-                        {/* Button */}
+                        {/* Button - variant - login - sign up */}
                         <button className="w-full py-3 mt-10 text-white transition bg-red-600 rounded-md hover:bg-red-700">
-                            Login
+                            {variant === 'login' ? 'Login' : 'Sign up'}
                         </button>
 
-                        {/* First time? - Create an account  */}
+                        {/* First time? - Create an account - toggleVariant  */}
                         <p className="mt-12 text-neutral-500">
-                            First time using Stimeo?
-                            <span className="ml-1 text-white cursor-pointer hover:underline">
-                                Create an account
+                            {variant === 'login' ? 'First time using Netflix?' : 'Already have an account?'}
+                            <span onClick={toggleVariant} className="ml-1 text-white cursor-pointer hover:underline">
+                                {variant === 'login' ? 'Create an account' : 'Login'}
                             </span>
+                            .
                         </p>
                     </div>
                 </div>
