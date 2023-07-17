@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Stimeo',
   description: 'Stimeo Streaming Service',
+  icons: {
+    icon: '/images/icon.png',
+    shortcut: '/images/icon.png',
+  },
 }
 
 export default function RootLayout({
