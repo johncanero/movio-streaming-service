@@ -5,8 +5,7 @@ import prismadb from "@/app/libs/prismadb";
 
 export async function POST(request: Request) {
   // method - status - body
-  const { method, status, body } = await request.json();
-
+  const body = await request.json();
   try {
     // email-name-password
     const { email, name, password } = body;
