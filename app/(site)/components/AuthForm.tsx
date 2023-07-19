@@ -132,20 +132,18 @@ export default function AuthForm() {
                             </div>
                         </div>
 
-
-
-                        {/* First time? - Create an account - toggleVariant  */}
-                        <p className="mt-12 text-neutral-500">
-                            {variant === 'LOGIN' ? 'First time using Netflix?' : 'Already have an account?'}
-                            <span onClick={toggleVariant} className="ml-1 text-white cursor-pointer hover:underline">
+                        {/* Login to Register */}
+                        <div className="flex justify-center gap-2 px-1 mt-6 text-gray-500 ">
+                            <div>
+                                {variant === 'LOGIN' ? 'First time using Netflix?' : 'Already have an account?'}
+                            </div>
+                            <div
+                                onClick={toggleVariant}
+                                className="text-white cursor-pointer hover:underline"
+                            >
                                 {variant === 'LOGIN' ? 'Create an account' : 'Login'}
-                            </span>
-                            .
-                        </p>
-
-
-
-
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
