@@ -1,8 +1,10 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
+import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from "react-hot-toast";
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 
 import Input from '@/app/components/inputs/Input';
@@ -43,13 +45,28 @@ export default function AuthForm() {
 
         if (variant === 'REGISTER') {
             axios.post('/api/register', data)
-     
+             
+                .catch(() => toast.error('Something went wrong!'))
+                .finally(() => setIsLoading(false))
         }
 
 
 
         if (variant === 'LOGIN') {
-            // NextAuth Sigin
+            signIn('credentials', {
+                ...data,
+                redirect: false
+            })
+                .then((callback) => {
+                    if (callback?.error) {
+                        toast.error('Invalid credentials!');
+                    }
+
+                    if (callback?.ok) {
+                        toast.success('Logged In!');
+                    }
+                })
+                .finally(() => setIsLoading(false))
         }
     }
 
