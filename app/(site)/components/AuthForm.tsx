@@ -51,7 +51,6 @@ export default function AuthForm() {
         }
 
 
-
         if (variant === 'LOGIN') {
             signIn('credentials', {
                 ...data,
