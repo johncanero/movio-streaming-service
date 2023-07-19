@@ -69,42 +69,43 @@ export default function AuthForm() {
                         </h2>
 
                         {/* Auth Input and Button */}
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="flex flex-col gap-4">
-                                {variant === 'REGISTER' && (
-                                    <Input
-                                        disabled={isLoading}
-                                        register={register}
-                                        errors={errors}
-                                        required
-                                        id="name"
-                                        label="Name"
-                                    />
-                                )}
-                                <Input
-                                    disabled={isLoading}
-                                    register={register}
-                                    errors={errors}
-                                    required
-                                    id="email"
-                                    label="Email address"
-                                    type="email"
-                                />
-                                <Input
-                                    disabled={isLoading}
-                                    register={register}
-                                    errors={errors}
-                                    required
-                                    id="password"
-                                    label="Password"
-                                    type="password"
-                                />
+                        <form
+                            className="flex flex-col gap-4"
+                            onSubmit={handleSubmit(onSubmit)}>
 
-                                <div>
-                                    <Button disabled={isLoading} fullWidth type="submit">
-                                        {variant === 'LOGIN' ? 'Sign in' : 'Register'}
-                                    </Button>
-                                </div>
+                            {variant === 'REGISTER' && (
+                                <Input
+                                    disabled={isLoading}
+                                    register={register}
+                                    errors={errors}
+                                    required
+                                    id="name"
+                                    label="Name"
+                                />
+                            )}
+                            <Input
+                                disabled={isLoading}
+                                register={register}
+                                errors={errors}
+                                required
+                                id="email"
+                                label="Email address"
+                                type="email"
+                            />
+                            <Input
+                                disabled={isLoading}
+                                register={register}
+                                errors={errors}
+                                required
+                                id="password"
+                                label="Password"
+                                type="password"
+                            />
+
+                            <div>
+                                <Button disabled={isLoading} fullWidth type="submit">
+                                    {variant === 'LOGIN' ? 'Sign in' : 'Register'}
+                                </Button>
                             </div>
                         </form>
 
