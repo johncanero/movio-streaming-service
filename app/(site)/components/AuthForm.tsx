@@ -70,10 +70,20 @@ export default function AuthForm() {
         }
     }
 
-
     const socialAction = (action: string) => {
         setIsLoading(true);
-        // NextAuth Social Signin
+
+        signIn(action, { redirect: false })
+            .then((callback) => {
+                if (callback?.error) {
+                    toast.error('Invalid credentials!');
+                }
+
+                if (callback?.ok) {
+                    toast.success('Logged In!');
+                }
+            })
+             toast.success('Logged In!');
     }
 
     return (
