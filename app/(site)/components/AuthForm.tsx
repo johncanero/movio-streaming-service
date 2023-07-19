@@ -3,9 +3,11 @@
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { BsGithub, BsGoogle } from 'react-icons/bs';
 
 import Input from '@/app/components/inputs/Input';
 import Button from '@/app/components/inputs/Button';
+import AuthSocialButton from './AuthSocialButton';
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -109,6 +111,28 @@ export default function AuthForm() {
                             </div>
                         </form>
 
+                        <div className='mt-6'>
+                            <div className="relative">
+                                <div className="relative flex justify-center text-sm">
+                                    <span className="px-2 text-gray-500">
+                                        Or continue with
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-2 mt-6">
+                                <AuthSocialButton
+                                    icon={BsGithub}
+                                    onClick={() => socialAction('github')}
+                                />
+                                <AuthSocialButton
+                                    icon={BsGoogle}
+                                    onClick={() => socialAction('google')}
+                                />
+                            </div>
+                        </div>
+
+
 
                         {/* First time? - Create an account - toggleVariant  */}
                         <p className="mt-12 text-neutral-500">
@@ -118,6 +142,10 @@ export default function AuthForm() {
                             </span>
                             .
                         </p>
+
+
+
+
                     </div>
                 </div>
             </div>
