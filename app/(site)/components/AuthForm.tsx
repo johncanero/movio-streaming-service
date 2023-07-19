@@ -1,97 +1,119 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import axios from 'axios';
-import Image from 'next/image';
 import { useCallback, useState } from 'react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
-import Input from '@/app/components/Input';
+import Input from '@/app/components/inputs/Input';
+import Button from '@/app/components/inputs/Button';
+
+type Variant = 'LOGIN' | 'REGISTER';
 
 export default function AuthForm() {
-    // useState (name-email-password)
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [variant, setVariant] = useState<Variant>('LOGIN');
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [variant, setVariant] = useState('login');
-
-    // useCallback (toggleVariant - register)
-    // toggleVariant
     const toggleVariant = useCallback(() => {
-        setVariant((currentVariant) => currentVariant === 'login' ? 'register' : 'login');
-    }, []);
-
-    // register
-    const register = useCallback(async () => {
-        try {
-            await axios.post('/api/register', {
-                email,
-                name,
-                password
-            });
-
-            // login();
-        } catch (error) {
-            console.log(error);
+        if (variant === 'LOGIN') {
+            setVariant('REGISTER');
+        } else {
+            setVariant('LOGIN');
         }
-    }, [email, name, password]);
+    }, [variant]);
+
+    const {
+        register,
+        handleSubmit,
+        formState: {
+            errors,
+        }
+    } = useForm<FieldValues>({
+        defaultValues: {
+            name: '',
+            email: '',
+            password: ''
+        }
+    });
+
+    // onSubmit
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        setIsLoading(true);
+
+        if (variant === 'REGISTER') {
+            // Axios Register
+
+        }
+
+
+        if (variant === 'LOGIN') {
+            // NextAuth Sigin
+        }
+    }
+
+
+    const socialAction = (action: string) => {
+        setIsLoading(true);
+        // NextAuth Social Signin
+    }
+
 
     return (
         <div>
             <div>
-
-                {/* Stimeo Logo */}
-                <nav className="px-12 py-5">
-                    <img src="/images/logo.png" className="h-12" alt="Logo" />
-                </nav>
-
                 {/* Auth Screen UI */}
                 <div className="flex justify-center">
                     <div className="self-center w-full py-16 mt-2 bg-black rounded-md px-14 bg-opacity-70 lg:w-2/5 lg:max-w-md">
                         {/* Auth Sign In - variant */}
                         <h2 className="mb-8 text-4xl font-semibold text-white">
-                            {variant === 'login' ? 'Sign in' : 'Register'}
+                            {variant === 'LOGIN' ? 'Sign in' : 'Register'}
                         </h2>
 
-                        {/* Auth Input (Input.tsx) */}
-                        <div className="flex flex-col gap-4">
-                            {/* name - variant - register */}
-                            {variant === 'register' && (
+                        {/* Auth Input and Button */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="flex flex-col gap-4">
+                                {variant === 'REGISTER' && (
+                                    <Input
+                                        disabled={isLoading}
+                                        register={register}
+                                        errors={errors}
+                                        required
+                                        id="name"
+                                        label="Name"
+                                    />
+                                )}
                                 <Input
-                                    id="name"
-                                    type="text"
-                                    label="Username"
-                                    value={name}
-                                    onChange={(e: any) => setName(e.target.value)}
+                                    disabled={isLoading}
+                                    register={register}
+                                    errors={errors}
+                                    required
+                                    id="email"
+                                    label="Email address"
+                                    type="email"
                                 />
-                            )}
-                            {/* email */}
-                            <Input
-                                id="email"
-                                type="email"
-                                label="Email address or phone number"
-                                value={email}
-                                onChange={(e: any) => setEmail(e.target.value)}
-                            />
-                            {/* password */}
-                            <Input
-                                type="password"
-                                id="password"
-                                label="Password"
-                                value={password}
-                                onChange={(e: any) => setPassword(e.target.value)}
-                            />
-                        </div>
+                                <Input
+                                    disabled={isLoading}
+                                    register={register}
+                                    errors={errors}
+                                    required
+                                    id="password"
+                                    label="Password"
+                                    type="password"
+                                />
 
-                        {/* button - variant - login - sign up */} 
-                        <button onClick={register} className="w-full py-3 mt-10 text-white transition bg-red-600 rounded-md hover:bg-red-700">
-                            {variant === 'login' ? 'Login' : 'Sign up'}
-                        </button>
+                                <div>
+                                    <Button disabled={isLoading} fullWidth type="submit">
+                                        {variant === 'LOGIN' ? 'Sign in' : 'Register'}
+                                    </Button>
+                                </div>
+                            </div>
+                        </form>
+
 
                         {/* First time? - Create an account - toggleVariant  */}
                         <p className="mt-12 text-neutral-500">
-                            {variant === 'login' ? 'First time using Netflix?' : 'Already have an account?'}
+                            {variant === 'LOGIN' ? 'First time using Netflix?' : 'Already have an account?'}
                             <span onClick={toggleVariant} className="ml-1 text-white cursor-pointer hover:underline">
-                                {variant === 'login' ? 'Create an account' : 'Login'}
+                                {variant === 'LOGIN' ? 'Create an account' : 'Login'}
                             </span>
                             .
                         </p>
