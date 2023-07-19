@@ -58,7 +58,6 @@ export default function AuthForm() {
         // NextAuth Social Signin
     }
 
-
     return (
         <div>
             <div>
