@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 
 import Input from '@/app/components/inputs/Input';
-import Button from '@/app/components/inputs/Button';
+import Button from '@/app/components/Button';
 import AuthSocialButton from './AuthSocialButton';
 import { toast } from "react-hot-toast";
 
@@ -170,12 +170,12 @@ export default function AuthForm() {
 
                             <div className="flex gap-2 mt-6">
                                 <AuthSocialButton
-                                    icon={BsGithub}
-                                    onClick={() => socialAction('github')}
-                                />
-                                <AuthSocialButton
                                     icon={BsGoogle}
                                     onClick={() => socialAction('google')}
+                                />
+                                <AuthSocialButton
+                                    icon={BsGithub}
+                                    onClick={() => socialAction('github')}
                                 />
                             </div>
                         </div>

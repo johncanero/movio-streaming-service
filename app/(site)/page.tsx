@@ -11,7 +11,6 @@ export default function Home() {
                 <nav className="px-12 py-5">
                     <img src="/images/logo.png" className="h-12" alt="Logo" />
                 </nav>
-                
                 <AuthForm />
             </div>
         </div>
