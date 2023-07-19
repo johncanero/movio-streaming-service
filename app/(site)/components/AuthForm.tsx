@@ -2,8 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import { signIn, useSession } from 'next-auth/react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 
@@ -14,8 +15,17 @@ import AuthSocialButton from './AuthSocialButton';
 type Variant = 'LOGIN' | 'REGISTER';
 
 export default function AuthForm() {
+    const session = useSession(); 
+    const router = useRouter();
     const [variant, setVariant] = useState<Variant>('LOGIN');
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if (session?.status === 'authenticated') {
+            router.push('/users');
+        }
+    }, [session?.status, router]);
+
 
     const toggleVariant = useCallback(() => {
         if (variant === 'LOGIN') {
