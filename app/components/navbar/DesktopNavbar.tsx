@@ -17,7 +17,8 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
     return ( 
         <>
             <div>
-                <nav className="flex items-center justify-center mt-6">
+                <nav className="flex items-center justify-between mx-12 mt-8">
+                    <h2 className="text-4xl font-medium text-red-500">Stimeo</h2>
                     {/* Avatar */}
                     <div
                         onClick={() => setIsOpen(true)}
