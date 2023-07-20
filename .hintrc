@@ -22,6 +22,12 @@
           "-webkit-text-size-adjust"
         ]
       }
+    ],
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
     ]
   }
 }
