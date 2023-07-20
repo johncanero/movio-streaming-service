@@ -22,7 +22,7 @@ export default function AuthForm() {
 
     useEffect(() => {
         if (session?.status === 'authenticated') {
-            router.push('/users');
+            router.push('/profiles');
         }
     }, [session?.status, router]);
 
@@ -65,7 +65,7 @@ export default function AuthForm() {
                     }
 
                     if (callback?.ok) {
-                        router.push('/users')
+                        router.push('/profiles')
                     }
                 })
                 .catch(() => toast.error('Something went wrong!'))
@@ -84,7 +84,7 @@ export default function AuthForm() {
                     }
 
                     if (callback?.ok) {
-                        router.push('/users')
+                        router.push('/profiles')
                     }
                 })
                 .finally(() => setIsLoading(false))
@@ -101,7 +101,7 @@ export default function AuthForm() {
                 }
 
                 if (callback?.ok) {
-                    router.push('/users')
+                    router.push('/profiles')
                 }
             })
             .finally(() => setIsLoading(false));

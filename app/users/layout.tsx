@@ -8,7 +8,7 @@ export default async function UsersLayout({
 
     return (
             <div className="h-full">
-                <Navbar />
+                {/* <Navbar /> */}
                 {children}
             </div>
     );
