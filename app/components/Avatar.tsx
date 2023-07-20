@@ -18,7 +18,7 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
                         alt="Avatar"
                     />
                 </div>
-                <p className="mt-4 text-white">{user?.name}</p>
+                {/* <p className="mt-4 text-white">{user?.name}</p> */}
             </div>
         </div>
     );

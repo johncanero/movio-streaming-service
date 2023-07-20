@@ -4,11 +4,11 @@ import { useState } from "react";
 import Avatar from "../Avatar";
 import { User } from "@prisma/client";
 
-interface DesktopSidebarProps {
+interface DesktopNavbarProps {
     currentUser: User
 }
 
-const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
+const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
     currentUser
 }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         <>
             <div>
                 <nav className="flex items-center justify-between mx-12 mt-8">
-                    <h2 className="text-4xl font-medium text-red-500">Stimeo</h2>
+                    {/* <h2 className="text-4xl font-medium text-red-500">Stimeo</h2> */}
                     {/* Avatar */}
                     <div
                         onClick={() => setIsOpen(true)}
@@ -31,4 +31,4 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
     );
 }
 
-export default DesktopSidebar;
+export default DesktopNavbar;

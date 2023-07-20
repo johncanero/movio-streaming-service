@@ -6,7 +6,7 @@ async function Navbar({}: {
     const currentUser = await getCurrentUser();
     return (
         <div>
-            <DesktopNavbar currentUser={currentUser!} />A
+            <DesktopNavbar currentUser={currentUser!} />
         </div>
     )
 }
