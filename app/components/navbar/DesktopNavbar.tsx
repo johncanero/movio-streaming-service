@@ -14,14 +14,14 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
     const [isOpen, setIsOpen] = useState(false);
     console.log({ currentUser, }, 'TEST')
 
-    return (
+    return ( 
         <>
             <div>
-                <nav className="flex flex-col items-center justify-between mt-4">
+                <nav className="flex items-center justify-center mt-6">
+                    {/* Avatar */}
                     <div
                         onClick={() => setIsOpen(true)}
-                        className="transition cursor-pointer hover:opacity-75"
-                    >
+                        className="transition cursor-pointer hover:opacity-75">
                         <Avatar user={currentUser} />
                     </div>
                 </nav>
