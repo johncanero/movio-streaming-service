@@ -1,23 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { NextPageContext } from 'next';
+import { getSession } from 'next-auth/react';
+
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import ButtonUser from "@/app/components/ButtonUser";
 
+
 export default function UserAccount() {
-    const session = useSession();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
     // handleSubmit
     const {
-        register,
         handleSubmit,
-        formState: {
-            errors,
-        }
     } = useForm<FieldValues>({
         defaultValues: {
             name: '',
@@ -31,7 +30,6 @@ export default function UserAccount() {
         setIsLoading(true);
         router.push('/users');
     }
-
 
     return (
         <div className="text-white text-center mt-6">
