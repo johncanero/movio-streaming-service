@@ -1,13 +1,12 @@
 "use client"
 
+import Navbar from "../components/navbar/Navbar";
 import Logout from "../components/Logout";
 
 const Users = () => {
     return (
-        <div className="flex items-center h-screen text-center">
-            <div className="m-auto">
-                <Logout />
-            </div>
+        <div>
+                <Navbar />
         </div>
     );
 }

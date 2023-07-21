@@ -11,7 +11,7 @@ const ProfilePage = async () => {
     const user = (await getCurrentUser()) as User;
 
     if (!user) {
-        return redirect('/auth');
+        return redirect('/');
     }
 
     return (

@@ -1,5 +1,3 @@
-import Navbar from "../components/navbar/Navbar";
-
 export default async function UsersLayout({
     children
 }: {
@@ -8,7 +6,6 @@ export default async function UsersLayout({
 
     return (
             <div className="h-full">
-                {/* <Navbar /> */}
                 {children}
             </div>
     );

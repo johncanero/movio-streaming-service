@@ -6,6 +6,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 import { BsGithub, BsGoogle } from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
+
+
 
 import Input from '@/app/components/inputs/Input';
 import Button from '@/app/components/Button';
@@ -170,11 +174,11 @@ export default function AuthForm() {
 
                             <div className="flex gap-2 mt-6">
                                 <AuthSocialButton
-                                    icon={BsGoogle}
+                                    icon={FcGoogle}
                                     onClick={() => socialAction('google')}
                                 />
                                 <AuthSocialButton
-                                    icon={BsGithub}
+                                    icon={FaGithub}
                                     onClick={() => socialAction('github')}
                                 />
                             </div>
