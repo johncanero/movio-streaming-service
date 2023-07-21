@@ -1,27 +1,36 @@
 'use client';
 
-import { User } from "@prisma/client";
-import Image from "next/image";
-interface AvatarProps {
-    user?: User;
-};
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
-const Avatar: React.FC<AvatarProps> = ({ user }) => {
+interface AvatarProps {
+    name: string;
+}
+
+const Avatar = ({ name }: AvatarProps) => {
+    const router = useRouter();
     return (
-        <div className="relative">
-            <div className="flex gap-2">
-                {/* Image and Name */}
-                <div className="relative inline-block w-10 h-10 overflow-hidden rounded-full md:h-12 md:w-12">
-                    <Image
-                        fill
-                        src={user?.image || '/images/default-red.png'}
-                        alt="Avatar"
-                    />
-                </div>
-                <p className="mt-4 text-white">{user?.name}</p>
+        <div
+            className='flex flex-col mx-auto group w-44'
+            onClick={() => router.push('/users')}
+        >
+            <div
+                className='flex items-center justify-center overflow-hidden border-2 border-transparent rounded-md h-44 w-44 group-hover:cursor-pointer group-hover:border-white'
+            >
+                <Image
+                    src={'/images/default-red.png'}
+                    alt='Profile'
+                    height={500}
+                    width={500}
+                />
+            </div>
+            <div
+                className='mt-4 text-2xl text-center text-gray-400 cursor-pointer group-hover:text-white'
+            >
+                {name}
             </div>
         </div>
     );
-}
+};
 
 export default Avatar;

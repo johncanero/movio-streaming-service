@@ -1,5 +1,3 @@
-import Navbar from "../components/navbar/Navbar";
-
 export default async function ProfilesLayout({
     children
 }: {
@@ -7,7 +5,6 @@ export default async function ProfilesLayout({
 }) {
     return (
         <div className="h-full">
-            {/* <Navbar /> */}
             {children}
         </div>
     );
