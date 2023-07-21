@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import Button from "@/app/components/Button";
+import ButtonUser from "@/app/components/ButtonUser";
 
 export default function UserAccount() {
     const session = useSession();
@@ -32,20 +32,31 @@ export default function UserAccount() {
         router.push('/users');
     }
 
-    
+
     return (
         <div className="text-white text-center mt-6">
             <form
                 className="flex flex-col gap-4"
                 onSubmit={handleSubmit(onSubmit)}>
-                    
+
                 <div>
-                    <Button disabled={isLoading} fullWidth type="submit">
-                        Submit
-                    </Button>
+                    <ButtonUser disabled={isLoading} fullWidth type="submit">
+                        <div className="flex-row mx-auto group w-44">
+                            {/* default-image */}
+                            <div className="flex items-center justify-center overflow-hidden border-2 border-transparent rounded-md w-44 h-44 group-hover:cursor-pointer group-hover:border-white">
+                                <img src="/images/default-blue.png" alt="Profile" />
+                            </div>
+
+                            {/* data.name */}
+                            <div className="relative flex items-center justify-center transition rounded-lg cursor-pointer">
+                                <p className="mt-4 text-xl text-center text-gray-400 group-hover:text-white">
+                                    user?.name
+                                </p>
+                            </div>
+                        </div>
+                    </ButtonUser>
                 </div>
             </form>
-            
         </div>
     )
 
