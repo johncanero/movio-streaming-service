@@ -16,8 +16,8 @@ const UserBox: React.FC<UserBoxProps> = ({
 
     return (
         <div>
-            <div className="relative flex items-center justify-center text-white transition rounded-lg cursor-pointer">
-                <p className="text-lg font-medium text-center text-white">
+            <div className="relative flex items-center justify-center transition rounded-lg cursor-pointer">
+                <p className="mt-4 text-xl text-center text-gray-400 group-hover:text-white">
                     {data.name}
                 </p>
             </div>
