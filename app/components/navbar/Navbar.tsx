@@ -2,12 +2,20 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { BsChevronDown } from 'react-icons/bs';
 
+import useMobileMenuModal from '@/app/hooks/useMobileMenuModal';
 import NavbarItem from './NavbarItem';
+import MobileMenu from '../MobileMenu';
 
 const Navbar = () => {
     const [showBackground, setShowBackground] = useState(false);
 
+    // const { onOpen } = useMobileMenuModal();
+
+    // const openMobileMenu = () => {
+    //     onOpen();
+    // };
 
     return (
         <nav className='fixed z-20 w-full'>
@@ -43,6 +51,18 @@ const Navbar = () => {
                         <NavbarItem label='New & Popular' />
                         <NavbarItem label='My List' />
                     </div>
+
+                    {/* Smaller Screens */}
+                    <div
+                        // onClick={toggleMobileMenu} 
+                        className="relative flex flex-row items-center gap-2 ml-8 cursor-pointer lg:hidden">
+                        <p className='text-base text-white drop-shadow-2xl'>Browse</p>
+                        <div className='flex items-center'>
+                            <BsChevronDown size={15} className='text-white transition' />
+                        </div>
+                        <MobileMenu />
+                    </div>
+
 
                 </div>
             </div>
