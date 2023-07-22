@@ -4,19 +4,26 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { BsChevronDown } from 'react-icons/bs';
 
-import useMobileMenuModal from '@/app/hooks/useMobileMenuModal';
+import useMobileMenuModal from '@/app/hooks/useMobileMenuModal'; 
 import NavbarItem from './NavbarItem';
 import MobileMenu from '../MobileMenu';
+import MobileMenuModal from '../modals/MobileMenuModal';
 
 const Navbar = () => {
     const [showBackground, setShowBackground] = useState(false);
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-    // const { onOpen } = useMobileMenuModal();
+    const { onOpen } = useMobileMenuModal();
 
-    // const openMobileMenu = () => {
-    //     onOpen();
-    // };
+    const openMobileMenu = () => {
+        onOpen();
+    };
 
+    const toggleMobileMenu = useCallback(() => {
+        setShowMobileMenu((current) => !current);
+    }, []);
+
+    
     return (
         <nav className='fixed z-20 w-full'>
             <div className={`relative  transition duration-500 ${showBackground ? 'bg-zinc-900/90' : ''} h-28 md:h-auto`}>
@@ -55,12 +62,14 @@ const Navbar = () => {
                     {/* Smaller Screens */}
                     <div
                         // onClick={toggleMobileMenu} 
+                        onClick={openMobileMenu}
                         className="relative flex flex-row items-center gap-2 ml-8 cursor-pointer lg:hidden">
                         <p className='text-base text-white drop-shadow-2xl'>Browse</p>
                         <div className='flex items-center'>
                             <BsChevronDown size={15} className='text-white transition' />
                         </div>
-                        <MobileMenu />
+                        {/* <MobileMenu visible={showMobileMenu} /> */}
+                        <MobileMenuModal />s
                     </div>
 
 
