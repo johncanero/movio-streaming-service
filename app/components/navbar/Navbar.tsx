@@ -10,6 +10,7 @@ import useMediaQuery from '@/app/hooks/useMediaQuery';
 
 import NavbarItem from './NavbarItem';
 import MobileMenuModal from '../modals/MobileMenuModal';
+import AccountMenu from '../AccountMenu';
 import MobileMenu from '../MobileMenu';
 
 const Navbar = () => {
@@ -107,7 +108,7 @@ const Navbar = () => {
                                 className={`text-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'
                                     }`}
                             />
-                            {/* <AccountMenu visible={showAccountMenu} /> */}
+                            <AccountMenu visible={showAccountMenu} />
                         </div>
 
                     </div>
