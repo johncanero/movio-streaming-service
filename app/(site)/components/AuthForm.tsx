@@ -10,7 +10,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 
 import Input from '@/app/components/inputs/Input';
-import Button from '@/app/components/Button';
+import Button from '@/app/components/buttons/Button';
 import AuthSocialButton from './AuthSocialButton';
 import { toast } from "react-hot-toast";
 

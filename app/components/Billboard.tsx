@@ -1,17 +1,17 @@
 'use client';
 
 import { Movie } from '@/types';
-// import useInfoModal from '@/hooks/useInfoModal';
+import useInfoModal from '../hooks/useInfoModal';
 
-// import PlayButton from '@/components/Buttons/PlayButton';
-// import MoreInfoButton from '@/components/MoreInfoButton';
+import PlayButton from './buttons/PlayButton';
+import MoreInfoButton from './MoreInfoButton';
 
 interface BillboardProps {
     movie: Movie;
 }
 
 const Billboard = ({ movie }: BillboardProps) => {
-    // const { onOpen } = useInfoModal();
+    const { onOpen } = useInfoModal();
 
     return (
         <div className='group relative h-[42.86vw] min-h-[45vh] max-h-[80vh]'>
@@ -37,8 +37,8 @@ const Billboard = ({ movie }: BillboardProps) => {
                     {movie.title}
                 </p>
                 <div className='flex flex-row gap-x-2'>
-                    {/* <PlayButton movieId={movie.id} />
-                    <MoreInfoButton movieId={movie.id} onOpen={onOpen} /> */}
+                    <PlayButton movieId={movie.id} />
+                    <MoreInfoButton movieId={movie.id} onOpen={onOpen} />
                 </div>
                 <div className='flex text-center max-w-[90%] md:max-w-[60%]'>
                     <p className='text-sm text-white md:text-lg line-clamp-2 md:line-clamp-3'>
@@ -59,8 +59,8 @@ const Billboard = ({ movie }: BillboardProps) => {
                     {movie.description}
                 </p>
                 <div className='flex flex-row items-center gap-3 mt-3 md:mt-4'>
-                    {/* <PlayButton movieId={movie.id} />
-                    <MoreInfoButton movieId={movie.id} onOpen={onOpen} /> */}
+                    <PlayButton movieId={movie.id} />
+                    <MoreInfoButton movieId={movie.id} onOpen={onOpen} />
                 </div>
             </div>
         </div>
