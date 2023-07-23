@@ -76,7 +76,7 @@ const Navbar = () => {
                         className="relative flex flex-row items-center gap-2 ml-8 cursor-pointer lg:hidden">
                         <p className='text-base text-white drop-shadow-2xl'>Browse</p>
                         <div className='flex items-center'>
-                            <BsChevronDown size={15} className='text-white transition' />
+                            <BsChevronDown size={15} className='text-white transition ' />
                         </div>
                         {/* <MobileMenu visible={showMobileMenu} /> */}
                         <MobileMenuModal />
@@ -91,6 +91,7 @@ const Navbar = () => {
                             <BsBell size={20} />
                         </div>
 
+                        {/* toggleAccountMenu */}
                         <div
                             onClick={toggleAccountMenu}
                             className='relative flex flex-row items-center gap-3 cursor-pointer'

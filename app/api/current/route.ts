@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import serverAuth from "@/app/libs/serverAuth";
+import serverAuth from "@/app/lib/serverAuth";
 
 export const GET = async (req: Request) => {
   try {
