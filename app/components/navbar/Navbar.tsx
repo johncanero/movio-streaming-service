@@ -11,7 +11,9 @@ import useMediaQuery from '@/app/hooks/useMediaQuery';
 import NavbarItem from './NavbarItem';
 import MobileMenuModal from '../modals/MobileMenuModal';
 import AccountMenu from '../AccountMenu';
-import MobileMenu from '../MobileMenu';
+import MobileMenu from '../modals/MobileMenu';
+
+const TOP_OFFSET = 66;
 
 const Navbar = () => {
     const isLargeScreens = useMediaQuery('(max-width: 1023px)');
@@ -25,6 +27,22 @@ const Navbar = () => {
         onOpen();
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY >= TOP_OFFSET) {
+                setShowBackground(true);
+            } else {
+                setShowBackground(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     // const toggleMobileMenu = useCallback(() => {
     //     setShowMobileMenu((current) => !current);
     // }, []);
@@ -36,7 +54,9 @@ const Navbar = () => {
 
     return (
         <nav className='fixed z-20 w-full'>
-            <div className={`relative  transition duration-500 ${showBackground ? 'bg-zinc-900/90' : ''} h-28 md:h-auto`}>
+            <div
+                className={`relative  transition duration-500 ${showBackground ? 'bg-zinc-900/90' : ''} h-28 md:h-auto`}
+            >
                 <div className='flex flex-row items-center px-4 py-6 md:px-10'>
                     <div className='flex md:hidden'>
                         <Image

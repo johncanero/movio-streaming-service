@@ -1,12 +1,19 @@
-"use client"
+
+import { User, Movie } from '@/types';
+import getCurrentUser from "../actions/getCurrentUser";
+import getBillboard from "../actions/getBillboard";
 
 import Navbar from "../components/navbar/Navbar";
-import Logout from "../components/Logout";
+import Billboard from "../components/Billboard";
 
-const Users = () => {
+const Users = async () => {
+    const user = (await getCurrentUser()) as User;
+    const randomMovie = (await getBillboard()) as Movie;
+
     return (
         <div>
-                <Navbar />
+            <Navbar />
+            <Billboard movie={randomMovie} />
         </div>
     );
 }
