@@ -1,7 +1,6 @@
 'use client';
 
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-
 import useMediaQuery from '../hooks/useMediaQuery';
 
 interface MoreInfoButtonProps {
