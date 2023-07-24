@@ -11,6 +11,7 @@ const nextConfig = {
       "mango.blender.org",
       "uhdtv.io",
       "upload.wikimedia.org",
+      "pictr.com",
     ],
   },
 };
