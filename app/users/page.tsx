@@ -9,6 +9,7 @@ import getBillboard from "../actions/getBillboard";
 import Navbar from "../components/navbar/Navbar";
 import Billboard from "../components/Billboard";
 import PageContent from './components/PageContent';
+import InfoModal from '../components/modals/InfoModal';
 
 export const revalidate = 0;
 
@@ -32,6 +33,7 @@ const Users = async () => {
 
     return (
         <div>
+            <InfoModal  />
             <Navbar />
             <Billboard movie={randomMovie} />
             <PageContent

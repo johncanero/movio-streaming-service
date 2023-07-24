@@ -15,3 +15,4 @@ const useInfoModal = create<ModalStoreInterface>((set) => ({
 }));
 
 export default useInfoModal;
+ 

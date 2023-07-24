@@ -31,7 +31,7 @@ const WatchPage = () => {
     }
 
     return (
-        <div className='h-screen w-screen bg-black group'>
+        <div className='w-screen h-screen bg-black group'>
             <nav
                 className={`fixed w-full p-4 z-10 flex flex-row items-center gap-8 
         bg-black bg-opacity-70 transition duration-300 ease-in hover:opacity-100
@@ -45,9 +45,9 @@ const WatchPage = () => {
                 <AiOutlineArrowLeft
                     className='text-white cursor-pointer'
                     size={40}
-                    onClick={() => router.push('/')}
+                    onClick={() => router.push('/users')}
                 />
-                <p className='text-white text-xl md:text-3xl font-bold'>
+                <p className='text-xl font-bold text-white md:text-3xl'>
                     <span className='font-light'>Watching: </span>
                     {movie.title}
                 </p>
