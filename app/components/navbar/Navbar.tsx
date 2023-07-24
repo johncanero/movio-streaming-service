@@ -11,7 +11,6 @@ import useMediaQuery from '@/app/hooks/useMediaQuery';
 import NavbarItem from './NavbarItem';
 import MobileMenuModal from '../modals/MobileMenuModal';
 import AccountMenu from '../AccountMenu';
-import MobileMenu from '../modals/MobileMenu';
 
 const TOP_OFFSET = 66;
 
