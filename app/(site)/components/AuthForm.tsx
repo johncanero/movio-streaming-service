@@ -37,6 +37,7 @@ export default function AuthForm() {
         }
     }, [variant]);
 
+    
     const {
         register,
         handleSubmit,
