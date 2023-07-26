@@ -5,7 +5,6 @@ import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
-import { BsGithub, BsGoogle } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 
