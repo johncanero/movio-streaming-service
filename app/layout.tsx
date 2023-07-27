@@ -8,8 +8,8 @@ import AuthContext from './context/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Stimeo',
-  description: 'Stimeo Streaming Service',
+  title: 'Netflix',
+  description: 'Netflix Streaming Service',
   icons: {
     icon: '/images/icon.png',
     shortcut: '/images/icon.png',
